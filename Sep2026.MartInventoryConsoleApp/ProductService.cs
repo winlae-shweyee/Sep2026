@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using System;
 
-
-
 namespace Sep2026.MartInventoryConsoleApp;
 
 public class ProductService
 {
     public static List<ProductDto> products = new List<ProductDto>();
 
-
-    //add product
+    //adding product
     public void AddProduct(string name, string category, decimal price, int quantity)
     {
        string id = GenerateProductId (category);
@@ -27,43 +24,6 @@ public class ProductService
         products.Add(product);
 
         Console.WriteLine ($"Product added Successfully! ID:{id} ");
-    }
-    //view product
-    public void ViewAllProducts()
-    {
-        foreach (ProductDto product in products)
-        {
-            Console.WriteLine($"ID: {product.Id}");
-            Console.WriteLine($"Name: {product.Name}");
-            Console.WriteLine($"Category: {product.Category}");
-            Console.WriteLine($"Price: {product.Price}");
-            Console.WriteLine($"Quantity: {product.Quantity}");
-            Console.WriteLine("___________________________________");
-        }
-}
-
-    public void ViewRestockProducts()
-    {
-        bool found = false;
-
-        foreach (ProductDto product in products)
-        {
-            if (product.Quantity < 10)
-            {
-                Console.WriteLine ($"ID: {product.Id}");
-                Console.WriteLine($"Name: {product.Name}");
-                Console.WriteLine($"Quantity : {product.Quantity}");
-                Console.WriteLine("Restock recommended!");
-                Console.WriteLine("__________________________________");
-
-                found = true;
-            }
-        }
-
-        if (!found)
-        {
-            Console.WriteLine("All products have sufficient stock. No restocking needed!");
-        }
     }
 
     //generating id
@@ -96,6 +56,46 @@ public class ProductService
     }
     
 
+    //view product
+    public void ViewAllProducts()
+    {
+        foreach (ProductDto product in products)
+        {
+            Console.WriteLine($"ID: {product.Id}");
+            Console.WriteLine($"Name: {product.Name}");
+            Console.WriteLine($"Category: {product.Category}");
+            Console.WriteLine($"Price: {product.Price}");
+            Console.WriteLine($"Quantity: {product.Quantity}");
+            Console.WriteLine("___________________________________");
+        }
+}
+
+    //View restock
+    public void ViewRestockProducts()
+    {
+        bool found = false;
+
+        foreach (ProductDto product in products)
+        {
+            if (product.Quantity < 10)
+            {
+                Console.WriteLine ($"ID: {product.Id}");
+                Console.WriteLine($"Name: {product.Name}");
+                Console.WriteLine($"Quantity : {product.Quantity}");
+                Console.WriteLine("Restock recommended!");
+                Console.WriteLine("__________________________________");
+
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("All products have sufficient stock. No restocking needed!");
+        }
+    }
+
+    
     //searching the product
     public void SearchProduct(string keyword)
     {

@@ -18,9 +18,8 @@ while (running)
     Console.WriteLine("7. Exit from the System");
     Console.WriteLine("Enter your choice: ");
 
-
-    string? option = Console.ReadLine();
-    //can be integer and null
+    string option = Console.ReadLine();
+    
     switch (option)
     {
         case "1":
