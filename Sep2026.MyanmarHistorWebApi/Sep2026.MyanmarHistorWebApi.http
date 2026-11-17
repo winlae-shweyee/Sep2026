@@ -1,0 +1,6 @@
+@Sep2026.MyanmarHistorWebApi_HostAddress = http://localhost:5048
+
+GET {{Sep2026.MyanmarHistorWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
